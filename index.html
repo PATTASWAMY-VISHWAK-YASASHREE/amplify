@@ -1,0 +1,31 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <style>
+    /* pick 2 colors max — a background and an accent */
+    /* center everything, big timer display, 3 buttons */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pomodoro Timer</h1>
+    <div class="timer" id="timer">25:00</div>
+    <div class="controls">
+      <button id="start">Start</button>
+      <button id="pause">Pause</button>
+      <button id="reset">Reset</button>
+    </div>
+    <p id="status">Ready</p>
+  </div>
+  <script>
+    // 25 min in seconds = 1500
+    // setInterval every 1000ms, decrement, update #timer
+    // when hits 0, show "Time's up!" in #status
+    // pause = clearInterval, reset = back to 1500
+  </script>
+</body>
+</html>
