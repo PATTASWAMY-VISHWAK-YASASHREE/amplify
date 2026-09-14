@@ -29,3 +29,43 @@ html
   </script>
 </body>
 </html>
+
+
+let timeLeft = 25 * 60;
+let timerId = null;
+
+function formatTime(s) {
+  const m = Math.floor(s / 60).toString().padStart(2, '0');
+  const sec = (s % 60).toString().padStart(2, '0');
+  return ${m}:${sec};
+}
+
+document.getElementById('timer').textContent = formatTime(timeLeft);
+
+document.getElementById('start').onclick = () => {
+  if (timerId) return;
+  timerId = setInterval(() => {
+    timeLeft--;
+    document.getElementById('timer').textContent = formatTime(timeLeft);
+    if (timeLeft <= 0) {
+      clearInterval(timerId);
+      timerId = null;
+      document.getElementById('status').textContent = "Time's up!";
+    }
+  }, 1000);
+};
+
+document.getElementById('pause').onclick = () => {
+  clearInterval(timerId);
+  timerId = null;
+  document.getElementById('status').textContent = "Paused";
+};
+
+document.getElementById('reset').onclick = () => {
+  clearInterval(timerId);
+  timerId = null;
+  timeLeft = 25 * 60;
+  document.getElementById('timer').textContent = formatTime(timeLeft);
+  document.getElementById('status').textContent = "Ready";
+};
+
